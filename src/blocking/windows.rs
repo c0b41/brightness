@@ -124,7 +124,7 @@ impl crate::blocking::Brightness for BlockingDeviceImpl {
     }
 
     fn display_name(&self) -> Result<Option<String>, Error> {
-        self.device_description().map(Some)
+        Ok(Some(self.device_description.clone()))
     }
 
     fn get(&self) -> Result<u32, Error> {

@@ -28,7 +28,7 @@ impl crate::Brightness for AsyncDeviceImpl {
     }
 
     async fn display_name(&self) -> Result<Option<String>, Error> {
-        self.0.device_description().map(Some)
+        Ok(Some(self.0.device_description.clone()))
     }
 
     async fn get(&self) -> Result<u32, Error> {

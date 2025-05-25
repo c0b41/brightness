@@ -81,7 +81,7 @@ mod r#async {
         async fn device_name(&self) -> Result<String, Error>;
 
         /// Returns a user-friendly display name, if available.
-        fn display_name(&self) -> Result<Option<String>, Error>; // Add this line
+        fn display_name(&self) -> Result<Option<String>, Error>;
 
         /// Returns the current brightness as a percentage.
         async fn get(&self) -> Result<u32, Error>;
@@ -98,6 +98,10 @@ mod r#async {
     impl Brightness for BrightnessDevice {
         async fn device_name(&self) -> Result<String, Error> {
             self.0.device_name().await
+        }
+
+        async fn display_name(&self) -> Result<Option<String>, Error> {
+            self.0.display_name().await
         }
 
         async fn get(&self) -> Result<u32, Error> {
