@@ -80,6 +80,9 @@ mod r#async {
         /// Returns the device name.
         async fn device_name(&self) -> Result<String, Error>;
 
+        /// Returns a user-friendly display name, if available.
+        fn display_name(&self) -> Result<Option<String>, Error>; // Add this line
+
         /// Returns the current brightness as a percentage.
         async fn get(&self) -> Result<u32, Error>;
 

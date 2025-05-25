@@ -27,6 +27,10 @@ impl crate::Brightness for AsyncDeviceImpl {
         self.0.device_name()
     }
 
+    async fn display_name(&self) -> Result<Option<String>, Error> {
+        self.0.device_description().map(Some)
+    }
+
     async fn get(&self) -> Result<u32, Error> {
         let cloned = Arc::clone(&self.0);
         unblock(move || cloned.get()).await
