@@ -63,6 +63,7 @@ pub(crate) struct BlockingDeviceImpl {
     physical_monitor: WrappedPhysicalMonitor,
     file_handle: WrappedFileHandle,
     device_name: String,
+    device_description: String,
     /// Note: PHYSICAL_MONITOR.szPhysicalMonitorDescription == DISPLAY_DEVICEW.DeviceString
     /// Description is **not** unique.
     pub(crate) device_description: String,
