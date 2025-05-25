@@ -641,7 +641,7 @@ fn ioctl_set_display_brightness(device: &BlockingDeviceImpl, value: u8) -> Resul
 
 impl BrightnessExt for BrightnessDevice {
     fn device_description(&self) -> Result<String, Error> {
-        Ok(self.0.device_description()?.clone())
+        Ok(self.0.device_description.clone())
     }
 
     fn device_registry_key(&self) -> Result<String, Error> {
