@@ -63,9 +63,6 @@ pub(crate) struct BlockingDeviceImpl {
     physical_monitor: WrappedPhysicalMonitor,
     file_handle: WrappedFileHandle,
     device_name: String,
-    pub device_description: String,
-    pub device_key: String, 
-    pub device_path: String,
     /// Note: PHYSICAL_MONITOR.szPhysicalMonitorDescription == DISPLAY_DEVICEW.DeviceString
     /// Description is **not** unique.
     pub(crate) device_description: String,
@@ -644,7 +641,7 @@ fn ioctl_set_display_brightness(device: &BlockingDeviceImpl, value: u8) -> Resul
 
 impl BrightnessExt for BrightnessDevice {
     fn device_description(&self) -> Result<String, Error> {
-        Ok(self.device_description.clone())
+        Ok(self.device_description().clone())
     }
 
     fn device_registry_key(&self) -> Result<String, Error> {
