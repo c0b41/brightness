@@ -25,6 +25,9 @@ pub trait Brightness {
     /// Returns the device name.
     fn device_name(&self) -> Result<String, Error>;
 
+    // Returns the display name
+    fn display_name(&self) -> Result<Option<String>, Error>;
+
     /// Returns the current brightness as a percentage.
     fn get(&self) -> Result<u32, Error>;
 
@@ -35,6 +38,10 @@ pub trait Brightness {
 impl Brightness for BrightnessDevice {
     fn device_name(&self) -> Result<String, Error> {
         self.0.device_name()
+    }
+
+    fn display_name(&self) -> Result<Option<String>, Error> {
+        self.0.display_name()
     }
 
     fn get(&self) -> Result<u32, Error> {

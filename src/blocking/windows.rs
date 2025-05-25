@@ -123,6 +123,10 @@ impl crate::blocking::Brightness for BlockingDeviceImpl {
         Ok(self.device_name.clone())
     }
 
+    fn display_name(&self) -> Result<Option<String>, Error> {
+        Ok(Some(self.device_description.clone()))
+    }
+
     fn get(&self) -> Result<u32, Error> {
         Ok(if self.is_internal() {
             ioctl_query_display_brightness(self)?
